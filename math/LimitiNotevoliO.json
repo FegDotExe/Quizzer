@@ -1,0 +1,22 @@
+{
+    "type":"questionList",
+    "questionList":[
+        {
+            "q":"Quanto vale $\\lim\\limits_{x\\to0}\\log_a(1+x)$?",
+            "a":"$x\\log_ae+o(x)$"
+        },
+        {
+            "q":"Quanto vale $\\lim\\limits_{x\\to0}\\tan x-\\sin x$?",
+            "a":"$\\frac{1}{2}x^3+o(x^3)$"
+        },
+        {
+            "q":"Quanto vale $\\lim\\limits_{x\\to0}\\cos x-1$?",
+            "a":"$\\frac{1}{2}x^2+o(x^2)$"
+        }
+        ,
+        {
+            "q":"Quanto vale $\\lim\\limits_{x\\to0}\\sin x$?",
+            "a":"$x+o(x)$"
+        }
+    ]
+}

@@ -1,0 +1,53 @@
+{
+    "type":"questionList",
+    "questionList":[
+        {
+            "q":"Quanto vale $\\lim\\limits_{x\\to0}\\frac{\\sin x}{x}$?",
+            "a":"$1$"
+        },
+        {
+            "q":"Quanto vale $\\lim\\limits_{x\\to0}\\frac{\\arcsin x}{x}$?",
+            "a":"$1$"
+        },
+        {
+            "q":"Quanto vale $\\lim\\limits_{x\\to0}\\frac{\\sinh x}{x}$?",
+            "a":"$1$"
+        },
+        {
+            "q":"Quanto vale $\\lim\\limits_{x\\to0}\\frac{1-\\cos x}{x^2}$?",
+            "a":"$\\frac{1}{2}$"
+        },
+        {
+            "q":"Quanto vale $\\lim\\limits_{x\\to0}\\frac{\\tan x}{x}$?",
+            "a":"$1$"
+        },
+        {
+            "q":"Quanto vale $\\lim\\limits_{x\\to0}\\frac{\\tan x-\\sin x}{x^3}$?",
+            "a":"$\\frac{1}{2}$"
+        },
+        {
+            "q":"Quanto vale $\\lim\\limits_{x\\to\\infty}(1+\\frac{1}{x})^x$?",
+            "a":"$e$"
+        },
+        {
+            "q":"Quanto vale $\\lim\\limits_{x\\to0}\\frac{a^x-1}{x}$?",
+            "a":"$\\log a$"
+        },
+        {
+            "q":"Quanto vale $\\lim\\limits_{x\\to0}\\frac{a^{\\beta x}-1}{x}$?",
+            "a":"$\\beta\\log a$"
+        },
+        {
+            "q":"Quanto vale $\\lim\\limits_{x\\to0}\\frac{(1+x)^\\alpha-1}{x}$?",
+            "a":"$\\alpha$"
+        },
+        {
+            "q":"Quanto vale $\\lim\\limits_{x\\to0}\\frac{\\log_a(1+x)}{x}$?",
+            "a":"$\\log_a e$"
+        },
+        {
+            "q":"Quanto vale $\\lim\\limits_{x\\to+\\infty}\\frac{x^\\alpha}{\\log^\\beta x}$?",
+            "a":"$+\\infty$"
+        }
+    ]
+}

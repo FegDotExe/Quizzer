@@ -1,0 +1,19 @@
+{
+    "type": "test",
+    "questionPool": [
+        "math/Irrazionali"
+    ],
+    "questions": 1,
+    "waitMessage": "Premi invio per visualizzare la risposta",
+    "askCorrect": "Hai risposto correttamente [y/n]?",
+    "right": "Corrette",
+    "wrong": "Sbagliate",
+    "answer": "**Risposta:**",
+    "statsGiven": "*Risposte corrette a questa domanda:*",
+    "stats": {
+        "Come si risolve la disequazione $\\sqrt[n]{f(x)}>g(x)$ con $n$ pari?": {
+            "asked": 1,
+            "right": 1
+        }
+    }
+}
