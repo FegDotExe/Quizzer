@@ -18,48 +18,108 @@
             "a":"$-\\cot(t)$"
         },
         {
-            "q":"A quale valore di è uguale $\\sin(t+\\pi)$?",
+            "q":"A quale valore di $\\sin$ è uguale $\\sin(t+\\pi)$?",
             "a":"$-\\sin(t)$"
         },
         {
-            "q":"A quale valore di è uguale $\\cos(t+\\pi)$?",
+            "q":"A quale valore di $\\cos$ è uguale $\\cos(t+\\pi)$?",
             "a":"$-\\cos(t)$"
         },
         {
-            "q":"A quale valore di è uguale $\\sin(\\pi -t)$?",
+            "q":"A quale valore di $\\sin$ è uguale $\\sin(\\pi -t)$?",
             "a":"$\\sin(t)$"
         },
         {
-            "q":"A quale valore di è uguale $\\cos(\\pi -t)$?",
+            "q":"A quale valore di $\\cos$ è uguale $\\cos(\\pi -t)$?",
             "a":"$-\\cos(t)$"
         },
         {
-            "q":"A quale valore di è uguale $\\sin(t+\\frac{\\pi}{2})$?",
+            "q":"A quale valore di $\\cos$ è uguale $\\sin(t+\\frac{\\pi}{2})$?",
             "a":"$\\cos(t)$"
         },
         {
-            "q":"A quale valore di è uguale $\\cos(t+\\frac{\\pi}{2})$?",
+            "q":"A quale valore di $\\sin$ è uguale $\\cos(t+\\frac{\\pi}{2})$?",
             "a":"$-\\sin(t)$"
         },
         {
-            "q":"A quale valore di è uguale $\\cos^2(t)+\\sin^2(t)$?",
+            "q":"A quale valore è uguale $\\cos^2(t)+\\sin^2(t)$?",
             "a":"$1$"
         },
         {
-            "q":"A quale valore di è uguale $\\cos(\\alpha+\\beta)$?",
+            "q":"A quale valore è uguale $1-\\sin^2(t)$?",
+            "a":"$\\cos^2(t)$"
+        },
+        {
+            "q":"A quale valore è uguale $1-\\cos^2(t)$?",
+            "a":"$\\sin^2(t)$"
+        },
+        {
+            "q":"A quale valore è uguale $\\cos(\\alpha+\\beta)$?",
             "a":"$\\cos(\\alpha)\\cos(\\beta)-\\sin(\\alpha)\\sin(\\beta)$"
         },
         {
-            "q":"A quale valore di è uguale $\\sin(\\alpha+\\beta)$?",
+            "q":"A quale valore è uguale $\\sin(\\alpha+\\beta)$?",
             "a":"$\\sin(\\alpha)\\cos(\\beta)+\\cos(\\alpha)\\sin(\\beta)$"
         },
         {
-            "q":"A quale valore di è uguale $\\cos(\\alpha+\\beta)$?",
+            "q":"A quale valore è uguale $\\cos(\\alpha+\\beta)$?",
             "a":"$\\cos(\\alpha)\\cos(\\beta)+\\sin(\\alpha)\\sin(\\beta)$"
         },
         {
-            "q":"A quale valore di è uguale $\\sin(\\alpha-\\beta)$?",
+            "q":"A quale valore è uguale $\\sin(\\alpha-\\beta)$?",
             "a":"$\\sin(\\alpha)\\cos(\\beta)-\\cos(\\alpha)\\sin(\\beta)$"
+        },
+        {
+            "q":"Per duplicazione, a cosa equivale $\\cos(2\\alpha)$?",
+            "a":"$\\cos^2(\\alpha)-\\sin^2(\\alpha)$"
+        },
+        {
+            "q":"Per duplicazione, a cosa equivale $\\cos(\\alpha)$?",
+            "a":"$\\cos^2(\\frac{\\alpha}{2})-\\sin^2(\\frac{\\alpha}{2})$"
+        },
+        {
+            "q":"Per duplicazione, a cosa equivale $\\sin(2\\alpha)$?",
+            "a":"$2\\sin(\\alpha)\\cos(\\alpha)$"
+        },
+        {
+            "q":"Per duplicazione, a cosa equivale $\\cos(\\alpha)\\sin(\\alpha)$?",
+            "a":"$\\frac{\\sin(2\\alpha)}{2}$"
+        },
+        {
+            "q":"Per duplicazione, a cosa equivale $\\cos^2(\\alpha)$?",
+            "a":"$\\cos(2\\alpha)+\\sin^2(\\alpha)$"
+        },
+        {
+            "q":"Per bisezione, a cosa equivale $|\\cos(\\frac{\\alpha}{2})|$?",
+            "a":"$\\sqrt{\\frac{1+\\cos(\\alpha)}{2}}$"
+        },
+        {
+            "q":"Per bisezione, a cosa equivale $|\\sin(\\frac{\\alpha}{2})|$?",
+            "a":"$\\sqrt{\\frac{1-\\cos(\\alpha)}{2}}$"
+        },
+        {
+            "q":"Per prostrasferesi, a cosa equivale $\\cos(\\alpha)+\\cos(\\beta)$?",
+            "a":"$2\\cos(\\frac{\\alpha+\\beta}{2})\\cos(\\frac{\\alpha-\\beta}{2})$"
+        },
+        {
+            "q":"Per prostrasferesi, a cosa equivale $\\cos(\\alpha)-\\cos(\\beta)$?",
+            "a":"$2\\sin(\\frac{\\alpha+\\beta}{2})\\sin(\\frac{\\alpha-\\beta}{2})$"
+        },
+        {
+            "q":"Per prostrasferesi, a cosa equivale $\\sin(\\alpha)+\\sin(\\beta)$?",
+            "a":"$2\\sin(\\frac{\\alpha+\\beta}{2})\\cos(\\frac{\\alpha-\\beta}{2})$"
+        },
+        {
+            "q":"Per prostrasferesi, a cosa equivale $\\sin(\\alpha)-\\sin(\\beta)$?",
+            "a":"$2\\cos(\\frac{\\alpha+\\beta}{2})\\sin(\\frac{\\alpha-\\beta}{2})$"
+        },
+        {
+            "q":"Quale è il valore di $\\sinh(x)$?",
+            "a":"$\\frac{e^x-e^{-x}}{2}$"
+        },
+        {
+            "q":"Quale è il valore di $\\cosh(x)$?",
+            "a":"$\\frac{e^x+e^{-x}}{2}$"
         }
     ]
 }

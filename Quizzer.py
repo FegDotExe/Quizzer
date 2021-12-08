@@ -6,6 +6,9 @@ from datetime import datetime
 
 DIRECTORY = path.dirname(path.abspath(__file__))+"/"
 
+COMPLETEPOOL=0
+MOSTDIFFICULT=1
+
 def jread(file) -> dict:
     """Legge un file json e ritorna il dizionario corrispondente. Il nome deve essere fornito con path relativo rispetto al file py e senza estensione"""
     with open(DIRECTORY+file+".json",encoding="utf-8") as temp_file:
@@ -18,7 +21,7 @@ def jwrite(file,data):
 
 class TestClass():
     """Rapresents a test"""
-    def __init__(self,fileName:str) -> None:
+    def __init__(self,fileName:str,mode=COMPLETEPOOL) -> None:
         """Loads a test at given filename"""
         self.fileName=fileName
         self.data=jread(fileName)
@@ -31,11 +34,26 @@ class TestClass():
             raise Exception("The given file is not a test")
 
         self.questions=[]
-        for questionFile in self.data["questionPool"]:#Loads all questions in self.questions
-            questionFile=jread(questionFile)
-            if questionFile["type"]=="questionList":
-                for question in questionFile["questionList"]:
-                    self.questions.append(question)
+        if mode==COMPLETEPOOL:
+            for questionFile in self.data["questionPool"]:#Loads all questions in self.questions
+                questionFile=jread(questionFile)
+                if questionFile["type"]=="questionList":
+                    for question in questionFile["questionList"]:
+                        self.questions.append(question)
+        elif mode==MOSTDIFFICULT:
+            tempquestions=[]
+            for questionFile in self.data["questionPool"]:
+                questionFile=jread(questionFile)
+                if questionFile["type"]=="questionList":
+                    for question in questionFile["questionList"]:
+                        tempquestion=question["q"]
+                        if tempquestion in self.data["stats"]:
+                            if len(tempquestions)==0:
+                                tempquestions.append(question)
+                            elif ((self.data["stats"][tempquestion]["right"]*100)/self.data["stats"][tempquestions[len(tempquestions)-1]["q"]]["asked"])<=((self.data["stats"][tempquestions[len(tempquestions)-1]["q"]]["right"]*100)/self.data["stats"][tempquestions[len(tempquestions)-1]["q"]]["asked"]):
+                                tempquestions.insert(0,question)
+            #print(tempquestions)
+            self.questions=tempquestions[:self.data["questions"]]
 
     def getUniqueQuestion(self):
         """Returns a question which has not been extracted yet and proceeds to remove it from self.questions"""

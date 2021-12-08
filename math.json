@@ -6,7 +6,7 @@
         "math/Trigonometriche",
         "math/Irrazionali"
     ],
-    "questions": 5,
+    "questions": 10,
     "waitMessage": "Premi invio per visualizzare la risposta",
     "askCorrect": "Hai risposto correttamente [y/n]?",
     "right": "Corrette",
@@ -19,16 +19,16 @@
             "right": 2
         },
         "Quanto vale $\\lim\\limits_{x\\to0}\\frac{\\log_a(1+x)}{x}$?": {
-            "asked": 4,
-            "right": 1
+            "asked": 5,
+            "right": 2
         },
         "Quanto vale $\\lim\\limits_{x\\to0}\\frac{\\tan x-\\sin x}{x^3}$?": {
             "asked": 7,
             "right": 5
         },
         "Quanto vale $\\lim\\limits_{x\\to0}\\frac{\\sin x}{x}$?": {
-            "asked": 2,
-            "right": 1
+            "asked": 3,
+            "right": 2
         },
         "Quanto vale $\\lim\\limits_{x\\to0}\\frac{\\arcsin x}{x}$?": {
             "asked": 3,
@@ -51,28 +51,28 @@
             "right": 4
         },
         "Quanto vale $\\lim\\limits_{x\\to0}\\log_a(1+x)$?": {
-            "asked": 3,
-            "right": 1
+            "asked": 4,
+            "right": 2
         },
         "Quanto vale $\\lim\\limits_{x\\to\\infty}(1+\\frac{1}{x})^x$?": {
-            "asked": 1,
-            "right": 1
+            "asked": 2,
+            "right": 2
         },
         "Quanto vale $\\lim\\limits_{x\\to0}\\frac{\\tan x}{x}$?": {
-            "asked": 1,
-            "right": 1
+            "asked": 2,
+            "right": 2
         },
         "Quanto vale $\\lim\\limits_{x\\to0}\\tan x-\\sin x$?": {
             "asked": 3,
             "right": 3
         },
         "Quanto vale $\\lim\\limits_{x\\to0}\\frac{a^{\\beta x}-1}{x}$?": {
-            "asked": 1,
+            "asked": 2,
             "right": 0
         },
         "Quanto vale $\\lim\\limits_{x\\to0}\\sin x$?": {
-            "asked": 1,
-            "right": 1
+            "asked": 2,
+            "right": 2
         },
         "A quale valore di $\\sin$ \u00e8 uguale $\\sin(-t)$?": {
             "asked": 4,
@@ -83,11 +83,11 @@
             "right": 2
         },
         "Come si risolve la disequazione $\\sqrt[n]{f(x)}>g(x)$ con $n$ pari?": {
-            "asked": 1,
-            "right": 1
+            "asked": 2,
+            "right": 2
         },
         "Come si risolve la disequazione $\\sqrt[n]{f(x)}\\le g(x)$ con $n$ pari?": {
-            "asked": 1,
+            "asked": 2,
             "right": 0
         }
     }
