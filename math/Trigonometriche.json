@@ -62,7 +62,7 @@
             "a":"$\\sin(\\alpha)\\cos(\\beta)+\\cos(\\alpha)\\sin(\\beta)$"
         },
         {
-            "q":"A quale valore è uguale $\\cos(\\alpha+\\beta)$?",
+            "q":"A quale valore è uguale $\\cos(\\alpha-\\beta)$?",
             "a":"$\\cos(\\alpha)\\cos(\\beta)+\\sin(\\alpha)\\sin(\\beta)$"
         },
         {

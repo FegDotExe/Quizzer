@@ -1,13 +1,16 @@
 from os import path, write
 from json import load, dumps
-from random import randint
+from random import randint,choice
 from IPython.display import display, Latex, clear_output, Markdown
 from datetime import datetime
+from math import ceil
 
 DIRECTORY = path.dirname(path.abspath(__file__))+"/"
 
 COMPLETEPOOL=0
 MOSTDIFFICULT=1
+UNANSWERED=2
+SMART=3
 
 def jread(file) -> dict:
     """Legge un file json e ritorna il dizionario corrispondente. Il nome deve essere fornito con path relativo rispetto al file py e senza estensione"""
@@ -26,34 +29,121 @@ class TestClass():
         self.fileName=fileName
         self.data=jread(fileName)
 
+        if self.data["type"]=="override":
+            tempdata=jread(self.data["source"])
+            for key in tempdata:
+                if key not in ["type","source","stats"]:
+                    if key not in self.data:
+                        self.data[key]=tempdata[key]
+
+        if self.data["type"] not in ["test","override"]:
+            raise Exception("The given file is not a test")
+
         self.asked=0#How many questions have been asked
 
         self.results={"total":self.data["questions"],"right":0,"rightQuestions":[],"wrongQuestions":[]}
 
-        if self.data["type"]!="test":
-            raise Exception("The given file is not a test")
-
         self.questions=[]
         if mode==COMPLETEPOOL:
-            for questionFile in self.data["questionPool"]:#Loads all questions in self.questions
-                questionFile=jread(questionFile)
-                if questionFile["type"]=="questionList":
-                    for question in questionFile["questionList"]:
-                        self.questions.append(question)
+            self.questions=self.compileCompletePool()
         elif mode==MOSTDIFFICULT:
-            tempquestions=[]
-            for questionFile in self.data["questionPool"]:
+            self.questions=self.compileDifficultPool()
+        elif mode==UNANSWERED:
+            self.questions=self.compileUnansweredPool()
+        elif mode==SMART:
+            finalPool=[]
+            completePool=self.compileCompletePool()
+            unansweredPool=self.compileUnansweredPool()
+            difficultPool=self.compileDifficultPool()
+
+            amountWithoutAnswer=ceil((self.data["questions"]*len(unansweredPool))/len(completePool))
+            for i in range(0,amountWithoutAnswer):
+                element=choice(unansweredPool)
+                try:
+                    completePool.remove(element)
+                except:
+                    pass
+                finalPool.append(element)
+            
+            #print(finalPool)
+
+            difficultAmount=(self.data["questions"]-len(finalPool))//2
+            
+            for i in range(0,difficultAmount):
+                element=choice(difficultPool)
+                try:
+                    completePool.remove(element)
+                except:
+                    pass
+                finalPool.append(element)
+            
+            leftAmount=self.data["questions"]-len(finalPool)
+            for i in range(0,leftAmount):
+                element=choice(completePool)
+                completePool.remove(element)
+                finalPool.append(element)
+
+            self.questions=finalPool
+
+    def compileCompletePool(self)->list:
+        """Compiles a list with the complete pool of questions"""
+        outputList=[]
+
+        for questionFile in self.data["questionPool"]:#Loads all questions in self.questions
                 questionFile=jread(questionFile)
                 if questionFile["type"]=="questionList":
                     for question in questionFile["questionList"]:
-                        tempquestion=question["q"]
-                        if tempquestion in self.data["stats"]:
-                            if len(tempquestions)==0:
-                                tempquestions.append(question)
-                            elif ((self.data["stats"][tempquestion]["right"]*100)/self.data["stats"][tempquestions[len(tempquestions)-1]["q"]]["asked"])<=((self.data["stats"][tempquestions[len(tempquestions)-1]["q"]]["right"]*100)/self.data["stats"][tempquestions[len(tempquestions)-1]["q"]]["asked"]):
-                                tempquestions.insert(0,question)
-            #print(tempquestions)
-            self.questions=tempquestions[:self.data["questions"]]
+                        outputList.append(question)
+        return outputList
+    def compileDifficultPool(self)->list:
+        """Compiles a list with a pool of the most difficult questions"""
+        tempquestions=[]
+        i=0
+        for questionFile in self.data["questionPool"]:
+            questionFile=jread(questionFile)
+            if questionFile["type"]=="questionList":
+                for question in questionFile["questionList"]:
+                    tempquestion=question["q"]
+                    if tempquestion in self.data["stats"]:
+                        """if len(tempquestions)==0:
+                            tempquestions.append(question)
+                        elif ((self.data["stats"][tempquestion]["right"]*100)/self.data["stats"][tempquestions[len(tempquestions)-1]["q"]]["asked"])<=((self.data["stats"][tempquestions[len(tempquestions)-1]["q"]]["right"]*100)/self.data["stats"][tempquestions[len(tempquestions)-1]["q"]]["asked"]):
+                            tempquestions.insert(0,question)
+                        else:
+                            tempquestions.append(question)"""
+                        #tempquestions.append(((self.data["stats"][tempquestion]["right"]*100)/self.data["stats"][tempquestion]["asked"],question))
+                        tempquestions=self.insertByValue(tempquestions,{"value":(self.data["stats"][tempquestion]["right"]*100)/self.data["stats"][tempquestion]["asked"], "question":question})
+                        i=i+1
+        output=[]
+        if len(tempquestions)>0:#Prevents errors when no questions have been answered
+            for i in range(0,self.data["questions"]):
+                output.append(tempquestions[i]["question"])
+        return output
+    def compileUnansweredPool(self)->list:
+        outputList=[]
+        for questionFile in self.data["questionPool"]:
+            questionFile=jread(questionFile)
+            if questionFile["type"]=="questionList":
+                for question in questionFile["questionList"]:
+                    if question["q"] not in self.data["stats"]:
+                        outputList.append(question)
+        return outputList
+
+    def insertByValue(self,list,element):
+        if len(list)==0:
+            list.append(element)
+        else:
+            i=0
+            while i<len(list):
+                if i!=len(list)-1:
+                    if element["value"]<list[i]["value"]:
+                        list.insert(i,element)
+                        break
+                else:
+                    list.append(element)
+                    break
+                i+=1
+        return list
 
     def getUniqueQuestion(self):
         """Returns a question which has not been extracted yet and proceeds to remove it from self.questions"""
@@ -147,3 +237,5 @@ class TestClass():
         """Clears stats for loaded quiz"""
         self.data["stats"]={}
         jwrite(self.fileName,self.data)
+
+#TODO: make a smarter algorithm which tries to give unanswered questions and alternates easy and difficult

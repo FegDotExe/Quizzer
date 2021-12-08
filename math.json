@@ -27,8 +27,8 @@
             "right": 5
         },
         "Quanto vale $\\lim\\limits_{x\\to0}\\frac{\\sin x}{x}$?": {
-            "asked": 3,
-            "right": 2
+            "asked": 4,
+            "right": 3
         },
         "Quanto vale $\\lim\\limits_{x\\to0}\\frac{\\arcsin x}{x}$?": {
             "asked": 3,
@@ -67,27 +67,127 @@
             "right": 3
         },
         "Quanto vale $\\lim\\limits_{x\\to0}\\frac{a^{\\beta x}-1}{x}$?": {
-            "asked": 2,
-            "right": 0
+            "asked": 4,
+            "right": 1
         },
         "Quanto vale $\\lim\\limits_{x\\to0}\\sin x$?": {
             "asked": 2,
             "right": 2
         },
         "A quale valore di $\\sin$ \u00e8 uguale $\\sin(-t)$?": {
-            "asked": 4,
-            "right": 4
+            "asked": 5,
+            "right": 5
         },
         "Quanto vale $\\lim\\limits_{x\\to0}\\cos x-1$?": {
-            "asked": 2,
-            "right": 2
+            "asked": 3,
+            "right": 3
         },
         "Come si risolve la disequazione $\\sqrt[n]{f(x)}>g(x)$ con $n$ pari?": {
             "asked": 2,
             "right": 2
         },
         "Come si risolve la disequazione $\\sqrt[n]{f(x)}\\le g(x)$ con $n$ pari?": {
+            "asked": 3,
+            "right": 1
+        },
+        "Per duplicazione, a cosa equivale $\\sin(2\\alpha)$?": {
+            "asked": 1,
+            "right": 1
+        },
+        "Come si risolve la disequazione $\\sqrt[n]{f(x)}\\ge g(x)$ con $n$ pari?": {
             "asked": 2,
+            "right": 1
+        },
+        "Per prostrasferesi, a cosa equivale $\\cos(\\alpha)-\\cos(\\beta)$?": {
+            "asked": 1,
+            "right": 0
+        },
+        "A quale valore di $\\cos$ \u00e8 uguale $\\sin(t+\\frac{\\pi}{2})$?": {
+            "asked": 1,
+            "right": 1
+        },
+        "A quale valore \u00e8 uguale $\\cos(\\alpha+\\beta)$?": {
+            "asked": 5,
+            "right": 2
+        },
+        "A quale valore di $\\cos$ \u00e8 uguale $\\cos(t+\\pi)$?": {
+            "asked": 2,
+            "right": 2
+        },
+        "A quale valore di $\\cos$ \u00e8 uguale $\\cos(\\pi -t)$?": {
+            "asked": 2,
+            "right": 1
+        },
+        "A quale valore \u00e8 uguale $\\cos^2(t)+\\sin^2(t)$?": {
+            "asked": 2,
+            "right": 1
+        },
+        "A quale valore \u00e8 uguale $\\sin(\\alpha+\\beta)$?": {
+            "asked": 1,
+            "right": 1
+        },
+        "A quale valore di $\\sin$ \u00e8 uguale $\\cos(t+\\frac{\\pi}{2})$?": {
+            "asked": 1,
+            "right": 0
+        },
+        "A quale valore \u00e8 uguale $1-\\sin^2(t)$?": {
+            "asked": 1,
+            "right": 1
+        },
+        "Per bisezione, a cosa equivale $|\\sin(\\frac{\\alpha}{2})|$?": {
+            "asked": 1,
+            "right": 1
+        },
+        "A quale valore di $\\tan$ \u00e8 uguale $\\tan(-t)$?": {
+            "asked": 1,
+            "right": 1
+        },
+        "Per duplicazione, a cosa equivale $\\cos^2(\\alpha)$?": {
+            "asked": 1,
+            "right": 0
+        },
+        "Per duplicazione, a cosa equivale $\\cos(2\\alpha)$?": {
+            "asked": 1,
+            "right": 0
+        },
+        "A quale valore di $\\sin$ \u00e8 uguale $\\sin(t+\\pi)$?": {
+            "asked": 1,
+            "right": 1
+        },
+        "A quale valore di $\\sin$ \u00e8 uguale $\\sin(\\pi -t)$?": {
+            "asked": 1,
+            "right": 1
+        },
+        "A quale valore \u00e8 uguale $\\cos(\\alpha-\\beta)$?": {
+            "asked": 1,
+            "right": 0
+        },
+        "Per prostrasferesi, a cosa equivale $\\sin(\\alpha)-\\sin(\\beta)$?": {
+            "asked": 1,
+            "right": 0
+        },
+        "A quale valore di $\\cos$ \u00e8 uguale $\\cos(-t)$?": {
+            "asked": 1,
+            "right": 1
+        },
+        "Per bisezione, a cosa equivale $|\\cos(\\frac{\\alpha}{2})|$?": {
+            "asked": 2,
+            "right": 2
+        },
+        "Per prostrasferesi, a cosa equivale $\\sin(\\alpha)+\\sin(\\beta)$?": {
+            "asked": 1,
+            "right": 0
+        },
+        "Per duplicazione, a cosa equivale $\\cos(\\alpha)\\sin(\\alpha)$?": {
+            "asked": 1,
+            "right": 0
+        },
+        "A quale valore di $\\cot$ \u00e8 uguale $\\cot(-t)$?": {
+            "asked": 1,
+            "right": 1
+        },
+        "Come si risolve la disequazione $\\sqrt[n]{f(x)}<g(x)$ con $n$ pari?": {
+            "asked": 1,
             "right": 0
         }
     }
