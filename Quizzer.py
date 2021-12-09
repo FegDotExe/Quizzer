@@ -169,15 +169,15 @@ class TestClass():
                     index=0
                 output=self.questions[index]
                 del(self.questions[index])
-                display(Latex(output["q"]))
+                display(Markdown(output["q"]))
 
                 #Waits for input and shows answer
                 input(self.data["waitMessage"])
-                display(Latex(output["a"]))
+                display(Markdown(output["a"]))
 
                 #Gets if answer was correct
                 correct=" "
-                while correct not in ["y","n",""]:
+                while correct not in ["y","n","","Y","N"]:
                     correct=input(self.data["askCorrect"])
 
                 clear_output()#Clears output
@@ -188,7 +188,7 @@ class TestClass():
 
                 self.data["stats"][output["q"]]["asked"]+=1
 
-                if correct=="y":
+                if correct in ["y","Y"]:
                     self.data["stats"][output["q"]]["right"]+=1
                     self.results["right"]+=1
                     self.results["rightQuestions"].append(output)
@@ -273,7 +273,6 @@ class TestClass():
             writeFile.write(fileOutput)
             writeFile.close()
 
-    
     def clearStats(self):
         """Clears stats for loaded quiz"""
         self.data["stats"]={}
