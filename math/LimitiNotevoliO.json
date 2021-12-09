@@ -10,7 +10,7 @@
             "a":"$\\frac{1}{2}x^3+o(x^3)$"
         },
         {
-            "q":"Quanto vale $\\lim\\limits_{x\\to0}\\cos x-1$?",
+            "q":"Quanto vale $\\lim\\limits_{x\\to0}1-\\cos x$?",
             "a":"$\\frac{1}{2}x^2+o(x^2)$"
         }
         ,

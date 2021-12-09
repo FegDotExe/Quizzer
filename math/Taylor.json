@@ -1,4 +1,17 @@
 {
     "type":"questionList",
-    "questionList":[]
+    "questionList":[
+        {
+            "q":"Quanto vale lo sviluppo di $e^x$?",
+            "a":"$1+x+\\frac{x^2}{2!}+\\frac{x^3}{3!}+...+\\frac{x^n}{n!}+o(x^n)$"
+        },
+        {
+            "q":"Quanto vale lo sviluppo di $\\sin x$?",
+            "a":"$x-\\frac{x^3}{3!}+\\frac{x^5}{5!}+...+\\frac{(-1)^nx^{2n+1}}{(2n+1)!}+o(x^{2n+1})$"
+        },
+        {
+            "q":"Quanto vale lo sviluppo di $\\cos x$?",
+            "a":"$1-\\frac{x^2}{2!}+\\frac{x^4}{4!}+...+\\frac{(-1)^nx^{2n}}{(2n)!}+o(x^{2n})$"
+        }
+    ]
 }

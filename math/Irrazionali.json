@@ -11,7 +11,7 @@
         },
         {
             "q":"Come si risolve la disequazione $\\sqrt[n]{f(x)}<g(x)$ con $n$ pari?",
-            "a":"$\\begin{cases}g(x)\\ge 0\\\\f(x)\\ge g(x)^n\\end{cases}$"
+            "a":"$\\begin{cases}f(x)\\ge 0\\\\g(x)> 0\\\\f(x)<g(x)^n\\end{cases}$"
         },
         {
             "q":"Come si risolve la disequazione $\\sqrt[n]{f(x)}\\le g(x)$ con $n$ pari?",

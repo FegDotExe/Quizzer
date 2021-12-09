@@ -12,6 +12,9 @@ MOSTDIFFICULT=1
 UNANSWERED=2
 SMART=3
 
+RANDOM=0
+ORDERED=1
+
 def jread(file) -> dict:
     """Legge un file json e ritorna il dizionario corrispondente. Il nome deve essere fornito con path relativo rispetto al file py e senza estensione"""
     with open(DIRECTORY+file+".json",encoding="utf-8") as temp_file:
@@ -59,6 +62,7 @@ class TestClass():
             amountWithoutAnswer=ceil((self.data["questions"]*len(unansweredPool))/len(completePool))
             for i in range(0,amountWithoutAnswer):
                 element=choice(unansweredPool)
+                unansweredPool.remove(element)
                 try:
                     completePool.remove(element)
                 except:
@@ -71,6 +75,7 @@ class TestClass():
             
             for i in range(0,difficultAmount):
                 element=choice(difficultPool)
+                difficultPool.remove(element)
                 try:
                     completePool.remove(element)
                 except:
@@ -95,7 +100,7 @@ class TestClass():
                     for question in questionFile["questionList"]:
                         outputList.append(question)
         return outputList
-    def compileDifficultPool(self)->list:
+    def compileDifficultPool(self,limit=True)->list:
         """Compiles a list with a pool of the most difficult questions"""
         tempquestions=[]
         i=0
@@ -116,8 +121,13 @@ class TestClass():
                         i=i+1
         output=[]
         if len(tempquestions)>0:#Prevents errors when no questions have been answered
-            for i in range(0,self.data["questions"]):
-                output.append(tempquestions[i]["question"])
+            if limit:
+                for i in range(0,self.data["questions"]):
+                    output.append(tempquestions[i]["question"])
+            else:
+                for element in tempquestions:
+                    output.append(element["question"])
+
         return output
     def compileUnansweredPool(self)->list:
         outputList=[]
@@ -130,6 +140,7 @@ class TestClass():
         return outputList
 
     def insertByValue(self,list,element):
+        #TODO: maybe this one function should be internal in compileDifficultPool()
         if len(list)==0:
             list.append(element)
         else:
@@ -145,12 +156,17 @@ class TestClass():
                 i+=1
         return list
 
-    def getUniqueQuestion(self):
+    def getUniqueQuestion(self,mode=RANDOM):
         """Returns a question which has not been extracted yet and proceeds to remove it from self.questions"""
         if self.asked<self.data["questions"]:
             if len(self.questions)>0:
                 #Displays question
-                index=randint(0,len(self.questions)-1)
+                if mode==RANDOM:
+                    index=randint(0,len(self.questions)-1)
+                elif mode==ORDERED:
+                    index=0
+                else:
+                    index=0
                 output=self.questions[index]
                 del(self.questions[index])
                 display(Latex(output["q"]))
@@ -187,7 +203,7 @@ class TestClass():
             return 0
 
     def elaborateResults(self,export=True):
-        """Show results with ipython display"""
+        """Show results with ipython display and eventually export them to file"""
         if export:
             nowTime=datetime.now().strftime("%Y-%m-%d %H-%M-%S")
             fileOutput=""
@@ -233,9 +249,36 @@ class TestClass():
             writeFile=open("exports/"+str(nowTime)+".md","w")
             writeFile.write(fileOutput)
             writeFile.close()
+    def elaborateDifficult(self,export=True):
+        """Show answer in difficulty order with ipython display and eventually export them to file"""
+        difficultList=self.compileDifficultPool(limit=False)
+        if export:
+            nowTime=datetime.now().strftime("D - %Y-%m-%d %H-%M-%S")
+            fileOutput=""
+
+        clear_output()
+
+        for question in difficultList:
+            output="## "+question["q"]
+            output=output+"\n\n"+self.data["answer"]+" " + question["a"]
+
+            output=output+"\n\n"+self.data["statsGiven"]+" "+str(self.data["stats"][question["q"]]["right"])+"/"+str(self.data["stats"][question["q"]]["asked"])+" - {percent}%".format(percent=(100*self.data["stats"][question["q"]]["right"])/self.data["stats"][question["q"]]["asked"])
+
+            if export:
+                fileOutput=fileOutput+output+"\n"
+            display(Markdown(output))
+
+        if export:
+            writeFile=open("exports/"+str(nowTime)+".md","w")
+            writeFile.write(fileOutput)
+            writeFile.close()
+
+    
     def clearStats(self):
         """Clears stats for loaded quiz"""
         self.data["stats"]={}
         jwrite(self.fileName,self.data)
 
-#TODO: make a smarter algorithm which tries to give unanswered questions and alternates easy and difficult
+#TODO: make a function for SMART pooling
+#TODO: add option for non-random questions
+#TODO: add option to express percent of difficult questions
